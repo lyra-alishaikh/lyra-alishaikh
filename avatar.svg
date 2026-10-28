@@ -1,51 +1,59 @@
-<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Lyra: a lyre drawn in starlight">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f0c29;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#302b63;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#24243e;stop-opacity:1" />
+    <radialGradient id="bg" cx="35%" cy="28%" r="85%">
+      <stop offset="0%" stop-color="#1a1730"/>
+      <stop offset="55%" stop-color="#0d0c16"/>
+      <stop offset="100%" stop-color="#06060a"/>
+    </radialGradient>
+    <linearGradient id="stroke" x1="150" y1="120" x2="370" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e8dcff"/>
+      <stop offset="45%" stop-color="#c3a9ff"/>
+      <stop offset="100%" stop-color="#8a63f0"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b18cff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#6d4fd8" stop-opacity="0.08"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="starGlow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
-  
-  <!-- Background Circle -->
-  <circle cx="200" cy="200" r="190" fill="url(#bg)" stroke="#c0c0c0" stroke-width="1"/>
-  
-  <!-- Stylized Lyre / Constellation Lines -->
-  <g stroke="#ffffff" stroke-width="1.2" opacity="0.6" filter="url(#glow)">
-    <path d="M150 140 L130 200 L160 280 L240 280 L270 200 L250 140 Z" fill="none" />
-    <!-- Harp Strings -->
-    <line x1="175" y1="140" x2="175" y2="280" stroke-width="0.5" stroke-dasharray="2,2" />
-    <line x1="200" y1="140" x2="200" y2="280" stroke-width="0.5" stroke-dasharray="2,2" />
-    <line x1="225" y1="140" x2="225" y2="280" stroke-width="0.5" stroke-dasharray="2,2" />
+
+  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="168" fill="url(#glow)" filter="url(#soft)" opacity="0.75"/>
+
+  <g fill="#cbb6ff" opacity="0.5">
+    <circle cx="104" cy="132" r="3.2"/>
+    <circle cx="404" cy="118" r="2.6"/>
+    <circle cx="428" cy="222" r="3.8"/>
+    <circle cx="96" cy="286" r="2.4"/>
+    <circle cx="140" cy="392" r="3"/>
+    <circle cx="376" cy="386" r="2.2"/>
+    <circle cx="330" cy="86" r="2.2"/>
+    <circle cx="190" cy="76" r="2.8"/>
+    <circle cx="438" cy="330" r="2.4"/>
+    <circle cx="82" cy="204" r="2"/>
   </g>
-  
-  <!-- Stars -->
-  <g fill="#ffffff">
-    <!-- Vega (Brightest star in Lyra) -->
-    <circle cx="200" cy="100" r="5" fill="#eef">
-      <animate attributeName="opacity" values="1;0.4;1" dur="4s" repeatCount="indefinite" />
-    </circle>
-    <!-- Other stars -->
-    <circle cx="150" cy="140" r="2.5" />
-    <circle cx="130" cy="200" r="2.5" />
-    <circle cx="160" cy="280" r="2.5" />
-    <circle cx="240" cy="280" r="2.5" />
-    <circle cx="270" cy="200" r="2.5" />
-    <circle cx="250" cy="140" r="2.5" />
+
+  <g stroke="url(#stroke)" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M172 168 C 142 236 148 316 200 372" stroke-width="17"/>
+    <path d="M340 168 C 370 236 364 316 312 372" stroke-width="17"/>
+    <path d="M188 154 L 324 154" stroke-width="17"/>
+    <path d="M200 372 C 224 390 288 390 312 372" stroke-width="15"/>
+    <g stroke-width="5" opacity="0.85">
+      <path d="M212 168 L 214 370"/>
+      <path d="M242 168 L 243 377"/>
+      <path d="M270 168 L 269 377"/>
+      <path d="M300 168 L 298 370"/>
+    </g>
   </g>
-  
-  <!-- Crescent Moon -->
-  <path d="M280 70 A 40 40 0 1 0 280 150 A 32 32 0 1 1 280 70" fill="#f0f0f0" opacity="0.85" transform="rotate(-15 280 110)"/>
-  
-  <!-- Decorative Sparkles -->
-  <circle cx="80" cy="120" r="1" fill="#fff" opacity="0.5" />
-  <circle cx="320" cy="300" r="1" fill="#fff" opacity="0.5" />
-  <circle cx="100" cy="320" r="1" fill="#fff" opacity="0.5" />
+
+  <g filter="url(#starGlow)" fill="#f4ecff">
+    <circle cx="256" cy="106" r="6.5"/>
+    <path d="M256 74 L 258.2 99.8 L 284 102 L 258.2 104.2 L 256 130 L 253.8 104.2 L 228 102 L 253.8 99.8 Z" opacity="0.85"/>
+  </g>
 </svg>
